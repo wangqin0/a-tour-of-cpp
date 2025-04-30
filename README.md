@@ -9,17 +9,14 @@ a-tour-of-cpp/
 ├── CMakeLists.txt       # Main CMake configuration
 ├── CMakePresets.json    # CMake presets configuration
 ├── vcpkg.json           # vcpkg manifest file
-├── setup-env.bat        # Windows environment setup script
-├── setup-env.sh         # Unix/Linux/macOS environment setup script
-├── include/             # Header files
-├── src/                 # Source files, organized by chapter
-│   └── chapter01/       # Chapter 1: The Basics
-│       ├── hello_world.cpp
-│       ├── types_variables.cpp
-│       ├── constants.cpp
-│       ├── pointers_arrays_references.cpp
-│       └── llvm_basic.cpp
-└── test/                # Test files
+└── src/                 # Source files, organized by chapter
+    └── ch01/            # Chapter 1: The Basics
+        ├── CMakeLists.txt
+        ├── hello_world.cpp
+        ├── types_variables.cpp
+        ├── constants.cpp
+        ├── minimal.cpp
+        └── pointers_arrays_references.cpp
 ```
 
 ## Prerequisites
@@ -51,26 +48,9 @@ Currently this project depends on:
 
 ## Setting Environment Variables
 
-### Using Convenience Scripts
-
-The project includes scripts to automatically set up environment variables:
-
-**Windows:**
-```bash
-# Run the setup script (optionally providing vcpkg path)
-setup-env.bat C:\path\to\vcpkg
-```
-
-**Unix/Linux/macOS:**
-```bash
-# Make the script executable
-chmod +x setup-env.sh
-
-# Run the script (optionally providing vcpkg path)
-source ./setup-env.sh /path/to/vcpkg
-```
-
 ### Manual Environment Variable Setup
+
+You'll need to set up the following environment variable:
 
 1. **VCPKG_ROOT**:
    Path to vcpkg installation
@@ -130,19 +110,19 @@ After building, you can run any of the examples. From the build directory:
 
 ```bash
 # Run the Hello World example
-./src/chapter01/ch01_hello_world
+./src/ch01/ch01_hello_world
 
 # Run the Types and Variables example
-./src/chapter01/ch01_types_variables
+./src/ch01/ch01_types_variables
 
 # Run the Constants example
-./src/chapter01/ch01_constants
+./src/ch01/ch01_constants
+
+# Run the Minimal example
+./src/ch01/ch01_minimal
 
 # Run the Pointers, Arrays, and References example
-./src/chapter01/ch01_pointers_arrays_references
-
-# Run the LLVM Basic example
-./src/chapter01/ch01_llvm_basic
+./src/ch01/ch01_pointers_arrays_references
 ```
 
 ## Managing Dependencies with vcpkg.json
@@ -163,11 +143,11 @@ To add a new dependency, simply add its name to the "dependencies" array.
 
 As you progress through the book, you can add more chapters by:
 
-1. Creating a new directory under `src/` (e.g., `src/chapter02/`)
+1. Creating a new directory under `src/` (e.g., `src/ch02/`)
 2. Adding example code files
 3. Creating a `CMakeLists.txt` file in the new chapter directory
 4. Adding the new chapter directory to the main `CMakeLists.txt` using `add_subdirectory()`
 
 ## License
 
-This project is licensed under the MIT License - see the LICENSE file for details. 
+This project is licensed under the MIT License - see the LICENSE file for details.

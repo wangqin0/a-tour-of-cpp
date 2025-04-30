@@ -25,3 +25,4 @@ find_package(fmt CONFIG REQUIRED)
 
 # Add chapters as subdirectories
 add_subdirectory(src/ch01)
+add_subdirectory(src/ch02)

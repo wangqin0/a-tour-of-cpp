@@ -90,7 +90,27 @@ int main() {
             std::cout << "   - " << val << std::endl;
         }, element);
     }
-    
+
+/*
+How it works:
+1. std::visit knows the current type stored in the variant (element)
+2. It then instantiates the lambda template with the correct type
+3. The template parameter auto gets replaced with the actual type (int, double, or string)
+4. The correct instantiation of the lambda is called with the value extracted from the variant
+
+What's happening is that std::visit is creating specialized versions of the lambda for each possible type in the variant. It's somewhat like if you wrote:
+// Pseudocode for what's happening at compile time
+struct visitor {
+    void operator()(const int& val) { std::cout << "   - " << val << std::endl; }
+    void operator()(const double& val) { std::cout << "   - " << val << std::endl; }
+    void operator()(const std::string& val) { std::cout << "   - " << val << std::endl; }
+};
+
+The generic lambda with auto is just a shorthand for defining this kind of visitor object with overloaded operators for each type.
+At runtime, std::visit determines which type is currently in the variant and calls the appropriate instantiation of the lambda function.
+This is the power of C++ templates combined with the type-awareness of variants - it handles the type dispatching for you while maintaining full type safety.
+*/
+
     // 8. Variant with user-defined types
     std::cout << "\n8. Variant with custom types:" << std::endl;
     

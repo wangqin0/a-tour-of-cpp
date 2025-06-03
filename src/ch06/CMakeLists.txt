@@ -1,0 +1,2 @@
+add_executable(ch06_copy_move copy_move.cpp)
+add_executable(ch06_copy_move_test copy_move_test.cpp)

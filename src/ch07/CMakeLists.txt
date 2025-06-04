@@ -1,0 +1,1 @@
+add_executable(ch07_templates templates.cpp)

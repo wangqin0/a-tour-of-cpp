@@ -13,6 +13,8 @@ vcpkg_installed/
 !.vscode/tasks.json
 !.vscode/launch.json
 !.vscode/extensions.json
+!.vscode/c_cpp_properties.json
+.cache/
 *.swp
 *.swo
 .idea/

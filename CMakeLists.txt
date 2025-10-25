@@ -18,6 +18,9 @@ set(CMAKE_CXX_STANDARD 20)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 set(CMAKE_CXX_EXTENSIONS OFF)
 
+# Export compile commands for IntelliSense
+set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
+
 # Include directories
 include_directories(include)
 
@@ -31,3 +34,4 @@ add_subdirectory(src/ch04)
 add_subdirectory(src/ch05)
 add_subdirectory(src/ch06)
 add_subdirectory(src/ch07)
+add_subdirectory(src/ch09)

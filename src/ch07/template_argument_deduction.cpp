@@ -1,3 +1,5 @@
+// TODO: understand ambiguous ctor example
+
 #include <iostream>
 #include <vector>
 #include <string>
@@ -24,6 +26,8 @@ int main()
 
     std::vector v1 = { 1, 2, 3 };
     std::vector v2 = {"hey", "Hello", "world"};
+    // error: init list is not homogenous
+    // std::vector v3 = {"hey"s, "Hello", "world"};
 
     std::cout << typeid(v2).name() << std::endl;
     std::cout << typeid(v2[0]).name() << std::endl;
